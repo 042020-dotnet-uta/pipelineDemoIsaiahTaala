@@ -24,20 +24,20 @@ stages:
     jobs:
     - job: build
       steps: 
-        - script: dotnet build pipelineMvcDemo/pipelineMvcDemo.csproj
+        - script: dotnet build pipelineMvcDemo/
 
   - stage: test
     dependsOn: build
     jobs:
     - job: test
       steps: 
-        - script: dotnet test pipelineMvcDemo/pipelineMvcDemo.csproj
+        - script: dotnet test pipelineMvcDemo/
 
   - stage: publish
     dependsOn: test
     jobs:
     - job: publish
       steps: 
-        - script: dotnet publish pipelineMvcDemo/pipelineMvcDemo.csproj
+        - script: dotnet publish pipelineMvcDemo/
 
 name: '$(date:yyyyMMdd)$(rev:rr)'
